@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>微信记账系统</title>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="renderer" content="webkit">
+<link href="images/ico.ico" rel="shortcut icon">
+<meta name="viewport" content="width=640,maximum-scale=4,user-scalable=no">
+<link rel="stylesheet" rev="stylesheet" href="style/reset.css" type="text/css" />
+<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" rev="stylesheet" href="style/global.css" type="text/css" />
+<link rel="stylesheet" rev="stylesheet" href="style/index.css" type="text/css" />
+<script type="text/javascript" src="script/jquery.js"></script>
+</head>
+<body>
+
+<!-- id=innerbox 标签外面 不放任何标签  为自适应标签   -->
+<div class="" id="innerbox"> 
+	<div class="title">
+    <em class="closetle">×</em>
+    <span class="">绑定</span>
+  </div>
+  
+  <div class="login">
+    <ul>
+      <li>
+        <div class="logipt">
+          <div class="logic logic1"></div>
+          <input type="text" class="lgoinpt"  placeholder="请输入账号" value="" />
+        </div>
+      </li>
+      <li>
+        <div class="logipt">
+          <div class="logic logic2"></div>
+          <input type="password" class="lgoinpt" placeholder="请输入密码" value="" />
+        </div>
+      </li>
+      <li><a href=""javascript:void(0);" class="dengbtn" >绑 定</a></li>
+
+    </ul>
+  </div>
+  
+  
+</div>
+</body>
+<script src="https://cdn.bootcss.com/jquery/1.11.1/jquery.js"></script>
+ 
+<script type="text/javascript" src="script/index.js"></script>
+
+</html>
+<script>
+    $(".dengbtn").click(function(){
+        var username = $("input[name='username']").val();
+        var password = $("input[name='password']").val();
+        var url = "login.php";
+        var data = {user:username,pwd:password};
+        $.post(url,data,function(data){
+//            alert(data);return false;
+            if(data==1){
+                alert("绑定成功！");
+            }else{
+                alert("账号或密码错误");
+            }
+        })
+    })
+</script>
